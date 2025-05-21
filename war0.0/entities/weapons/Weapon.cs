@@ -1,0 +1,29 @@
+namespace War0._0.entetis.weapons;
+
+public class Weapon : PhysicalEntity
+{
+    int TotalAmmo;
+    int MaxAmmo;
+    string AmmoType;
+
+
+    public Weapon(int maxAmmo)
+    {
+        this.MaxAmmo = maxAmmo;
+        this.TotalAmmo = maxAmmo;
+        Console.WriteLine($"weapon created");
+    }
+    
+    public void shoot()
+    {
+        if (TotalAmmo > 0)
+        {
+            Console.WriteLine($"shooting {AmmoType} BOOOM..");
+            TotalAmmo--;
+        }
+        else
+        {
+            Console.WriteLine($"no enough bullets..");
+        }
+    }
+}
