@@ -1,26 +1,17 @@
 namespace War;
 
-public class Report
+internal class Report
 {
-    List<Soldier> LinkedTerorist = new List<Soldier>();
-    private double[] LastKnownLocation = new double[3];
+    List<Soldier> LinkedTerorist;
+    private Location LastKnownLocation;
     private string ReportTime;
 
-    public Report(List<Soldier> LinkedTerorist = null, double[] LastKnownLocation = null)
+    public Report(List<Soldier> LinkedTerorist, Location LastKnownLocation)
     {
-        if (LinkedTerorist == null)
-        {
-            LinkedTerorist = new List<Soldier>();
-        }
-        if (LastKnownLocation == null)
-        {
-            LastKnownLocation = new double[3];
-        }
         this.LinkedTerorist = LinkedTerorist;
         this.LastKnownLocation = LastKnownLocation;
         ReportTime = DateTime.Now.ToLongTimeString();
     }
-
     public string getReportTime()
     {
         return ReportTime;
