@@ -1,4 +1,4 @@
-namespace War0._0.entetis;
+namespace War;
 
 public abstract class PhysicalEntity
 {

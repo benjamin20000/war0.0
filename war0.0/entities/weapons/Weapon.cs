@@ -1,4 +1,4 @@
-namespace War0._0.entetis.weapons;
+namespace War;
 
 public class Weapon : PhysicalEntity
 {

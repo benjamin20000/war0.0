@@ -1,4 +1,4 @@
-namespace War0._0.army;
+namespace War;
 
 public class army
 {
