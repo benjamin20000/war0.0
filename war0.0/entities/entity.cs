@@ -2,13 +2,13 @@ namespace War;
 
 public abstract class PhysicalEntity
 {
-    float weight;
-    string location;
-    float speed;
-    float MaxSpeed;
+    protected float Weight;
+    protected string Location;
+    protected float Speed;
+    protected float MaxSpeed;
 
     protected PhysicalEntity(float weight)
     {
-        this.weight = weight;
+        this.Weight = weight;
     }
 }
