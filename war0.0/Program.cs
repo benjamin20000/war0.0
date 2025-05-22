@@ -8,6 +8,7 @@
             w1.shoot();
             w1.shoot();
             w1.shoot();
+            w1.shoot();
         }
     }
 }
