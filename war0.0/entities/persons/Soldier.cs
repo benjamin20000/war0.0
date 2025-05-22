@@ -10,6 +10,8 @@ public class Soldier : Person
 
     public void printSoldier()
     {
-        Console.WriteLine($"Soldier {{ Name: {base.Name}, Weight: {base.Weight}, Age: {base.Age}, Alive: {base.IsAlive}, LiveRange: {base.LiveRange} }}");    }
+        Console.WriteLine($"Soldier {{ Name: {base.Name}, Weight: {base.Weight}, Age: {base.Age}, Alive: {base.IsAlive}, LiveRange: {base.LiveRange} }}");
+        
+    }
     
 }

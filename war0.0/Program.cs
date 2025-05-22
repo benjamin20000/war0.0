@@ -15,6 +15,9 @@
             w1.shoot();
             w1.shoot();
             w1.shoot();
+
+            Report report = new Report();
+            report.PrintReport();
         }
     }
 }
