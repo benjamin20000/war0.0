@@ -34,5 +34,11 @@ namespace War
             this.Longitude = longitude;
             this.Altitude = altitude;
         }
+
+        public void printLocation()
+        {
+            Console.WriteLine($"Latitude: {this.Latitude}, Longitude: {this.Longitude}, Altitude: {this.Altitude}");
+             
+        }
     }
 }
