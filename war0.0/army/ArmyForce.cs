@@ -1,4 +1,4 @@
-namespace War0._0
+namespace War
 {
 
     public abstract class ArmyForce

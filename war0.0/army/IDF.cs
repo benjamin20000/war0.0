@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace War0._0
+namespace War
 {
     public class IDF : ArmyForce
     {
