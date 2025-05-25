@@ -2,11 +2,12 @@ using Bogus;
 
 namespace War;
 
-public class AMAN : Corps
+internal class AMAN : Corps
 {
     private List<Soldier> knownTerorists = new List<Soldier>();
 
-    public AMAN()
+    public AMAN(Soldier Commander,  List<Soldier> Soldiers = null, List<string> Tools = null)
+    : base(Commander,  Soldiers, Tools)
     {
         Console.WriteLine("AMAN was creatd");
     }
@@ -20,13 +21,7 @@ public class AMAN : Corps
     // creating a func that will add a terrorist with random values
     public void addRandomTerorist()
     {
-        Random rnd = new Random();
-        int weight = rnd.Next(20, 90);
-        int age = rnd.Next(15, 80);
-        
-        var faker = new Faker();
-        string randomName = faker.Name.FullName();
-        Soldier terrorist = new Soldier(weight, randomName,  age, true, 5);
+        Soldier terrorist = Soldier.CreateRandomSoldier();
         knownTerorists.Add(terrorist);
     }
     

@@ -33,7 +33,6 @@ namespace War
             this.Latitude = latitude;
             this.Longitude = longitude;
             this.Altitude = altitude;
-
         }
     }
 }

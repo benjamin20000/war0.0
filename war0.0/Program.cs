@@ -4,20 +4,28 @@
     {
         public static void Main(string[] args)
         {
-            AMAN aman = new AMAN();
-            aman.addTerorist(22,"benny",25,true);
-            aman.addTerorist(22,"benny",25,true);
-            aman.addTerorist(22,"benny",25,true);
+            IDF idf = new IDF();
+            Hamas hamas = new Hamas();
+            idf.creatAMANcorps();
+            idf.printArmyInpo();
+            hamas.printArmyInpo();
 
-            aman.getAllTerorists();
-            Weapon w1 = new Weapon(3);
-            w1.shoot();
-            w1.shoot();
-            w1.shoot();
-            w1.shoot();
-
-            Report report = new Report();
-            report.PrintReport();
+            // AMAN aman = new AMAN();
+            // aman.addTerorist(22,"benny",25,true);
+            // aman.addTerorist(22,"benny",25,true);
+            // aman.addTerorist(22,"benny",25,true);
+            //
+            // aman.getAllTerorists();
+            // Weapon w1 = new Weapon(3);
+            // w1.shoot();
+            // w1.shoot();
+            // w1.shoot();
+            // w1.shoot();
+            //
+            // AMAN report = new AMAN();
+            // report.addRandomTerorist();
+            // report.addRandomTerorist();
+            // report.getAllTerorists();
         }
     }
 }
