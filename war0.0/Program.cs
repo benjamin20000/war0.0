@@ -6,9 +6,11 @@
         {
             IDF idf = new IDF();
             Hamas hamas = new Hamas();
+            hamas.RecruitRandomSoldiers(20);
             idf.creatAMANcorps();
             idf.printArmyInpo();
             hamas.printArmyInpo();
+            idf.spotTerrorists(hamas);
 
             // AMAN aman = new AMAN();
             // aman.addTerorist(22,"benny",25,true);

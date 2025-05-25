@@ -5,13 +5,13 @@ namespace War
     {
         public string EstablishedYear {get;}
         protected Soldier CurentCommander;
-        protected List<Corps> AllCorps;
+        protected Dictionary<string ,Corps> AllCorps;
         protected List<Soldier> AllSoldiers = new List<Soldier>();
 
-        public ArmyForce(string establishedYear = null, Soldier curentCommander = null, List<Corps> allCorps = null)
+        public ArmyForce(string establishedYear = null, Soldier curentCommander = null, Dictionary<string, Corps> allCorps = null)
         {
             this.EstablishedYear = establishedYear ?? "2000";
-            this.AllCorps = allCorps ?? new List<Corps>();
+            this.AllCorps = allCorps ?? new Dictionary<string, Corps>();
             this.CurentCommander = curentCommander ?? Soldier.CreateRandomSoldier();
             if (!this.AllSoldiers.Contains(this.CurentCommander))
             {
@@ -43,12 +43,25 @@ namespace War
             Console.WriteLine($"the army contain {this.AllSoldiers.Count} soldiers");
         }
 
-        public void RecruitRandomSoldiersToCorps(int amount_of_soldiers, Corps corp)
+        public void RecruitRandomSoldiers(int amount_of_soldiers, Corps corps = null)
         {
-            for (int i = 1; i < amount_of_soldiers; i++)
+            if (corps == null)
             {
-                AllSoldiers.Add(Soldier.CreateRandomSoldier());
+                for (int i = 0; i < amount_of_soldiers; i++)
+                {
+                    AllSoldiers.Add(Soldier.CreateRandomSoldier());
+                }
             }
+            else
+            {
+                for (int i = 0; i < amount_of_soldiers; i++)
+                {
+                    Soldier newSoldier = Soldier.CreateRandomSoldier();
+                    AllSoldiers.Add(newSoldier);
+                    corps.addNewSoldier(newSoldier);
+                }
+            }
+           
         }
 
         public Soldier RecruitNewRandomSoldier()
