@@ -3,15 +3,72 @@ namespace War
 
     public abstract class ArmyForce
     {
-        private string EstablishedYear;
-        private string CurentCommander;
-        private List<string> AllCorps;
+        public string EstablishedYear {get;}
+        protected Soldier CurentCommander;
+        protected Dictionary<string ,Corps> AllCorps;
+        protected List<Soldier> AllSoldiers = new List<Soldier>();
 
-        public ArmyForce(string establishedYear, string curentCommander, List<string> allCorps)
+        public ArmyForce(string establishedYear = null, Soldier curentCommander = null, Dictionary<string, Corps> allCorps = null)
         {
-            this.EstablishedYear = establishedYear;
-            this.CurentCommander = curentCommander;
-            this.AllCorps = allCorps;
+            this.EstablishedYear = establishedYear ?? "2000";
+            this.AllCorps = allCorps ?? new Dictionary<string, Corps>();
+            this.CurentCommander = curentCommander ?? Soldier.CreateRandomSoldier();
+            if (!this.AllSoldiers.Contains(this.CurentCommander))
+            {
+                this.AllSoldiers.Add(this.CurentCommander);
+            }
+
+            
+        }
+        public void AppointNewCommander(Soldier newCommander = null)
+        {
+            if (newCommander == null)
+            {
+                Soldier commander = Soldier.CreateRandomSoldier();
+                CurentCommander = commander;
+            }
+            else
+            {
+                CurentCommander = newCommander;
+            }
+        }
+        
+        public void printArmyInpo()
+        {
+            Console.WriteLine("Army Info: ");
+            Console.WriteLine($"the army establish at {EstablishedYear}  ");
+            Console.Write($"the current commander is: ");
+            this.CurentCommander.printSoldier();
+            Console.WriteLine($"the army contain {this.AllCorps.Count} corps");
+            Console.WriteLine($"the army contain {this.AllSoldiers.Count} soldiers");
+        }
+
+        public void RecruitRandomSoldiers(int amount_of_soldiers, Corps corps = null)
+        {
+            if (corps == null)
+            {
+                for (int i = 0; i < amount_of_soldiers; i++)
+                {
+                    AllSoldiers.Add(Soldier.CreateRandomSoldier());
+                }
+            }
+            else
+            {
+                for (int i = 0; i < amount_of_soldiers; i++)
+                {
+                    Soldier newSoldier = Soldier.CreateRandomSoldier();
+                    AllSoldiers.Add(newSoldier);
+                    corps.addNewSoldier(newSoldier);
+                }
+            }
+           
+        }
+
+        public Soldier RecruitNewRandomSoldier()
+        {
+            Soldier randomSoldier = Soldier.CreateRandomSoldier();
+            this.AllSoldiers.Add(randomSoldier);
+            return randomSoldier;
         }
         
         public void attack()
