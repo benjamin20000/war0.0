@@ -10,8 +10,8 @@ namespace War
     {
         List<Weapon> weapons;
 
-        public GroundForces(Soldier comander, List<Soldier> soldiers, List<string> tools)
-            : base(comander, soldiers, tools)
+        public GroundForces(Soldier comander, List<Soldier> soldiers)
+            : base(comander, soldiers)
         {
             this.weapons = new List<Weapon>();
         }
