@@ -1,6 +1,6 @@
 namespace War;
 
-public abstract class Corps
+public  class Corps
 {
     protected Soldier Commander;
     protected List<Soldier> Soldiers;
