@@ -9,11 +9,8 @@ namespace War
 {
     public  class GroundForces : Corps 
     {
-        public GroundForces(Soldier comander, List<Soldier> soldiers, List<string> tools) : base(comander, soldiers, tools)
-        {
-           
-
-        }                   
+       public GroundForces(Soldier comander, List<Soldier> soldiers, List<string> tools) : base(comander, soldiers, tools)
+      {}                  
 
         public void attack()
         {
