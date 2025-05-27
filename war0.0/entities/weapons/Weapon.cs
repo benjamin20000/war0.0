@@ -11,7 +11,6 @@ public class Weapon : PhysicalEntity
         this.TotalAmmo = maxAmmo;
         Console.WriteLine($"weapon created");
     }
-    
     public void shoot()
     {
         if (TotalAmmo > 0)
