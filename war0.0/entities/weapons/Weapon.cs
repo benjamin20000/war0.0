@@ -5,8 +5,6 @@ public class Weapon : PhysicalEntity
     int TotalAmmo;
     int MaxAmmo;
     string AmmoType;
-
-
     public Weapon(int maxAmmo, float weight = 1) : base(weight)
     {
         this.MaxAmmo = maxAmmo;
