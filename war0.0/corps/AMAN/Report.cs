@@ -6,10 +6,10 @@ internal class Report
     private Location LastKnownLocation;
     private string ReportTime;
 
-    public Report(List<Soldier> LinkedTerorist, Location LastKnownLocation)
+    public Report(List<Soldier> LinkedTerorist, Location LastKnownLocation = null)
     {
         this.LinkedTerorist = LinkedTerorist;
-        this.LastKnownLocation = LastKnownLocation;
+        // this.LastKnownLocation = LastKnownLocation;
         ReportTime = DateTime.Now.ToLongTimeString();
     }
     public string getReportTime()
