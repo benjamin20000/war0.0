@@ -4,12 +4,10 @@ public abstract class Corps
 {
     protected Soldier Commander;
     protected List<Soldier> Soldiers;
-    protected List<string> Tools;
 
-    protected Corps(Soldier Commander,  List<Soldier> Soldiers, List<string> Tools)
+    protected Corps(Soldier Commander,  List<Soldier> Soldiers)
     {
         this.Soldiers = Soldiers ?? new List<Soldier>();
-        this.Tools = Tools ?? new List<string>();
         Console.WriteLine("Crops have been created");
     }
     
