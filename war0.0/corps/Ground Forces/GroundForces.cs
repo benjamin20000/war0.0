@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace War
 {
-    public class GroundForces : Corps
+    public  class GroundForces : Corps 
     {
         List<Weapon> weapons;
 
@@ -15,7 +15,6 @@ namespace War
         {
             this.weapons = new List<Weapon>();
         }
-
         public void attack()
         {
             Console.WriteLine("Start an attack!!");
