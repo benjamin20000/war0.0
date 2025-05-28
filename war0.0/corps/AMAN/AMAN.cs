@@ -7,7 +7,7 @@ internal class AMAN : Corps
     private List<Soldier> knownTerorists = new List<Soldier>();
 
     public AMAN(Soldier Commander,  List<Soldier> Soldiers = null, List<string> Tools = null)
-    : base(Commander,  Soldiers, Tools)
+    : base(Commander,  Soldiers)
     {
         Console.WriteLine("AMAN was creatd");
     }
