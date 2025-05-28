@@ -1,6 +1,6 @@
 namespace War;
 
-public abstract class Weapon : PhysicalEntity
+public class Weapon : PhysicalEntity
 {
     int TotalAmmo;
     int MaxAmmo;
