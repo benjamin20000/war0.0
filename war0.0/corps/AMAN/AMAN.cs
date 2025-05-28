@@ -5,6 +5,7 @@ namespace War;
 internal class AMAN : Corps
 {
     private List<Soldier> knownTerorists = new List<Soldier>();
+    private List<Report> reports = new List<Report>();
 
     public AMAN(Soldier Commander,  List<Soldier> Soldiers = null, List<string> Tools = null)
     : base(Commander,  Soldiers)
@@ -38,5 +39,26 @@ internal class AMAN : Corps
         {
             terrorist.printSoldier();
         }
+    }
+
+    public void creatReport()
+    {
+        Random rnd = new Random();
+        List<Soldier> terrorists = new List<Soldier>();
+        foreach (Soldier soldier in knownTerorists)
+        {
+            int randNum = rnd.Next(1, knownTerorists.Count);
+            if (randNum == 1)
+            {
+                terrorists.Add(soldier);
+            }
+        }
+        //the report created successfully
+        if (terrorists.Count > 0)
+        {
+            Report report = new Report(terrorists);
+            this.reports.Add(report);
+        }
+        // else the report not created successfully
     }
 }
