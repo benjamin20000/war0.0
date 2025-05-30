@@ -2,15 +2,18 @@ namespace War;
 
 internal class Report
 {
+    private int id;
     List<Soldier> LinkedTerorist;
     private Location LastKnownLocation;
     private string ReportTime;
 
-    public Report(List<Soldier> LinkedTerorist, Location LastKnownLocation = null)
+    public Report(int reportId, List<Soldier> LinkedTerorist, Location LastKnownLocation = null)
     {
+        this.id = reportId;
         this.LinkedTerorist = LinkedTerorist;
         // this.LastKnownLocation = LastKnownLocation;
         ReportTime = DateTime.Now.ToLongTimeString();
+        PrintReport();
     }
     public string getReportTime()
     {
@@ -34,7 +37,8 @@ internal class Report
 
     public void PrintReport()
     {
-        Console.WriteLine("LinkedTerrorism: ");
+        Console.WriteLine($"_____reportID: {id}_____");
+        Console.WriteLine("LinkedTerrorists:");
         printLinkedTerorist();
         Console.WriteLine($"LastKnownLocation: {LastKnownLocation}");
         Console.WriteLine($"ReportTime: {ReportTime}");

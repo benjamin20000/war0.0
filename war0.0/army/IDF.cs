@@ -9,10 +9,11 @@ namespace War
     {
         public IDF(string establishedYear = "1948", Soldier curentCommander = null, Dictionary<string, Corps> allCorps =null) : base(establishedYear, curentCommander, allCorps)
         {
+            creatAMANcorps();
             Console.WriteLine("IDF has been created");
         }
 
-        public void creatAMANcorps()
+        private void creatAMANcorps()
         {
             Soldier newAMANcommander =  RecruitNewRandomSoldier();
             AMAN aman = new AMAN(newAMANcommander);
@@ -20,22 +21,41 @@ namespace War
         }
 
         public void spotTerrorists(Hamas hamas)
+        { 
+            AMAN aman = (AMAN)AllCorps["AMAN"];
+            aman.explorTerrorist(hamas);
+        }
+
+        public void printAllKnownTerorists()
         {
-            if (AllCorps.ContainsKey("AMAN"))
+            AMAN aman = (AMAN)AllCorps["AMAN"];
+            aman.printAllKnownTerorists();
+        }
+
+        public void creatAMANreport()
+        {
+            AMAN aman = (AMAN)AllCorps["AMAN"];
+            aman.creatReport();
+        }
+
+        public void printALlAMANreports()
+        {
+            AMAN aman = (AMAN)AllCorps["AMAN"];
+            aman.printALlReports();
+        }
+
+        public void printMostReportedTerorist()
+        {
+            AMAN aman = (AMAN)AllCorps["AMAN"];
+            Soldier most_rported = aman.getMostReportedTerorist();
+            if (most_rported != null)
             {
-                AMAN aman = AllCorps["AMAN"] as AMAN;
-                if (aman != null)
-                {
-                    aman.explorTerrorist(hamas);
-                }
-                else
-                {
-                    Console.WriteLine("AMAN corps exists but casting failed.");
-                }
+                Console.WriteLine("__________the most rported terrorist is:_______");
+                most_rported.printSoldier();
             }
             else
             {
-                Console.WriteLine("AMAN corps not found in AllCorps.");
+                Console.WriteLine("AMAN doesnt know any terrorist yet");
             }
         }
     }

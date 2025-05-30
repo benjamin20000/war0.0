@@ -6,6 +6,8 @@ internal class AMAN : Corps
 {
     private List<Soldier> knownTerorists = new List<Soldier>();
     private List<Report> reports = new List<Report>();
+    private Dictionary<Soldier, int> terroristsReportsCounetr = new Dictionary<Soldier, int>();
+    private Soldier MostReportedTerorist = null;
 
     public AMAN(Soldier Commander,  List<Soldier> Soldiers = null, List<string> Tools = null)
     : base(Commander,  Soldiers)
@@ -33,7 +35,7 @@ internal class AMAN : Corps
     }
     
 
-    public void getAllTerorists()
+    public void printAllKnownTerorists()
     {
         foreach (Soldier terrorist in knownTerorists)
         {
@@ -45,20 +47,65 @@ internal class AMAN : Corps
     {
         Random rnd = new Random();
         List<Soldier> terrorists = new List<Soldier>();
-        foreach (Soldier soldier in knownTerorists)
+        foreach (Soldier terrorist in knownTerorists)
         {
-            int randNum = rnd.Next(1, knownTerorists.Count);
+            // 1/len chance to terrorist to be in report
+            // Expectation of 1 terrorist to 1 report
+            int randNum = rnd.Next(1, knownTerorists.Count); 
             if (randNum == 1)
             {
-                terrorists.Add(soldier);
+                if (!terroristsReportsCounetr.ContainsKey(terrorist))
+                {
+                    terroristsReportsCounetr.Add(terrorist,0);   
+                }
+                terroristsReportsCounetr[terrorist]++;
+                //make sure the MostReportedTerorist is not null 
+                //this will be true only in the first report on the first terrorist
+                if (MostReportedTerorist == null)
+                {
+                    MostReportedTerorist = terrorist;
+                }
+                // update if nededd the MostReportedTerorist
+                if (terroristsReportsCounetr[terrorist] > terroristsReportsCounetr[MostReportedTerorist])
+                {
+                    MostReportedTerorist = terrorist;
+                }
+                terrorists.Add(terrorist);
             }
         }
         //the report created successfully
         if (terrorists.Count > 0)
         {
-            Report report = new Report(terrorists);
+            int reportId = reports.Count; 
+            Report report = new Report(reportId, terrorists);
             this.reports.Add(report);
         }
         // else the report not created successfully
+        else 
+        {
+            Console.WriteLine("creating report failed");
+        }
+    }
+
+    public Soldier getMostReportedTerorist()
+    {
+        return this.MostReportedTerorist;
+    }
+    
+    public List<Report> getReports()
+    {
+        return reports;
+    }
+    
+    public void printReport(Report report)
+    {
+        report.PrintReport();
+    }
+    public void printALlReports()
+    {
+        foreach (Report report in reports)
+        {
+            report.PrintReport();
+        }
     }
 }
