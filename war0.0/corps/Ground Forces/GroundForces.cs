@@ -22,16 +22,16 @@ namespace War
         
         // public fullAmmo
 
-        public void askWeapon(int amount)
-        {
-            Console.WriteLine($"i need {amount} of weapon");
-            Random rnd = new Random();
-            int weaponAmount = rnd.Next(0, amount);
-            for (int i = 0; i < weaponAmount; i++)
-            {
-                Weapon newWeapon = new Weapon();
-                this.weapons.Add(newWeapon);
-            }
-        }
+        // public void askWeapon(int amount)
+        // {
+        //     Console.WriteLine($"i need {amount} of weapon");
+        //     Random rnd = new Random();
+        //     int weaponAmount = rnd.Next(0, amount);
+        //     for (int i = 0; i < weaponAmount; i++)
+        //     {
+        //         Weapon newWeapon = new Weapon();
+        //         this.weapons.Add(newWeapon);
+        //     }
+        // }
     }
 }
