@@ -75,5 +75,38 @@ namespace War
         {
             Console.WriteLine("Start an attack!!");
         }
+
+        public void ArmamentSoldier(Soldier soldier)
+        {
+            Knife knife = new Knife();
+            Gun gun = new Gun();
+            Rifle rifle = new Rifle();
+            soldier.addWeapon(knife);
+            soldier.addWeapon(gun);
+            soldier.addWeapon(rifle);
+        }
+
+        public void ArmamentArmy()
+        {
+            foreach (var soldier in this.AllSoldiers)
+            {
+                ArmamentSoldier(soldier);
+            }
+        }
+
+        public void RandomlyArmament(Weapon weapon, int amount)
+        {
+            if (AllSoldiers.Count < 1)
+            {
+                return;
+            }
+            Random rnd = new Random();
+            while (amount > 0)
+            {
+                int randSold = rnd.Next(0, this.AllSoldiers.Count-1); 
+                AllSoldiers[randSold].addWeapon(weapon);
+                amount--;
+            }
+        }
     }
 }

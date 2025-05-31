@@ -38,7 +38,7 @@ namespace War
             aman.creatReport();
         }
 
-        public void printALlAMANreports()
+        public void printAllAMANreports()
         {
             AMAN aman = (AMAN)AllCorps["AMAN"];
             aman.printALlReports();
@@ -57,6 +57,31 @@ namespace War
             {
                 Console.WriteLine("AMAN doesnt know any terrorist yet");
             }
+        }
+
+        public void printManpower()
+        {
+            foreach (var corp in  AllCorps.Keys)
+            {
+                Console.WriteLine($"___the Manpower in {corp}:");
+                Console.WriteLine($"{AllCorps[corp].getManpower()}");
+            }
+        }
+
+        public void printtMostDangerousterrorist()
+        {
+            AMAN aman = (AMAN)AllCorps["AMAN"];
+            Soldier most_dangeors = aman.getMostDangerous();
+            if (most_dangeors == null)
+            {
+                Console.WriteLine("no known terrorists yet");
+            }
+            else
+            {
+                Console.WriteLine("__________the most dangerous terrorist is:_______");
+                most_dangeors.printSoldier();
+            }
+           
         }
     }
 }

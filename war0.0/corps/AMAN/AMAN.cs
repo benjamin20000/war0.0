@@ -108,4 +108,27 @@ internal class AMAN : Corps
             report.PrintReport();
         }
     }
+
+    public Soldier getMostDangerous()
+    {
+        if (knownTerorists.Count == 0)
+        {
+            return null;
+        }
+        int most_deng = 0;
+        int curent_deng = 0;
+        for (int i = 0; i < knownTerorists.Count; i++)
+        {
+            int terrorist_deng = knownTerorists[i].getWeaponsDangerousPoints();
+            if (terrorist_deng > curent_deng)
+            {
+                most_deng = i;
+                Console.WriteLine($"____the most degares: {most_deng}" );
+                curent_deng = terrorist_deng;
+            }
+        }
+        Console.WriteLine($"____initely the most degares: {most_deng}" );
+        Console.WriteLine($"____the arr sise is: {knownTerorists.Count}" );
+        return knownTerorists[most_deng];
+    }
 }

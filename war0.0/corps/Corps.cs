@@ -30,4 +30,9 @@ public abstract class Corps
             soldier.printSoldier();
         }
     }
+
+    public int getManpower()
+    {
+        return this.Soldiers.Count;
+    }
 }
