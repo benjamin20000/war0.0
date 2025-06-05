@@ -19,15 +19,6 @@ namespace War
             this.Altitude = altitude;
         }
 
-        public double[] getLocation()
-        {
-            double[] res = new double[3];
-            res[0] = Latitude;
-            res[1] = Longitude;
-            res[2] = Altitude;
-            return res;
-        }
-
         public void setLocation(double latitude, double longitude, double altitude)
         {
             this.Latitude = latitude;
