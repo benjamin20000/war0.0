@@ -28,6 +28,7 @@
             // report.addRandomTerorist();
             // report.addRandomTerorist();
             // report.getAllTerorists();
-        }
+            hamas.GetRandomTerrorists();    
+         }
     }
 }
