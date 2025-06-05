@@ -30,5 +30,12 @@
             // report.getAllTerorists();
             hamas.GetRandomTerrorists();    
          }
+=======
+        { 
+            Game game = new Game();
+            game.play();
+        }
+>>>>>>> 57d8707f02c8a1c25849da4351f0d9108a9ea5d4
     }
+
 }

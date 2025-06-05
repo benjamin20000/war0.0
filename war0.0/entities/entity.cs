@@ -7,11 +7,8 @@ public abstract class PhysicalEntity
     protected float Speed;
     protected float MaxSpeed;
 
-    protected PhysicalEntity(float weight , string location, float speed, float maxSpeed)
-    {
+    protected PhysicalEntity(float weight)
+    {   
         this.Weight = weight;
-        this.Location = location;
-        this.Speed = speed;
-        this.MaxSpeed = maxSpeed;
     }
 }

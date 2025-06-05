@@ -17,7 +17,7 @@ namespace War
         public float maxSpeed; // max speed for heavy unit
 
         public HeavyUnit(float weight, string location, float speed, float maxSpeed, int maxHmmo, int totalAmmo, string ammoType, float maxFuel, float totalFuel)
-            : base(weight, location, speed, maxSpeed)
+            : base(weight)
         {
             this.maxHmmo = maxHmmo;
             this.totalAmmo = totalAmmo;
